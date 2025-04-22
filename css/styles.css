@@ -11,17 +11,23 @@ body {
 }
 
 header {
-    background-color: #e08db7;
     background: linear-gradient(135deg, #ff99cc, #ff66b2);
     color: white;
     padding: 20px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    text-align: center;
 }
 
 h1 {
     font-size: 40px;
+    margin-bottom: 10px;
+}
+
+#typing-effect {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ff1493;
+    margin-top: 10px;
 }
 
 nav ul {
@@ -31,7 +37,7 @@ nav ul {
 
 nav ul li {
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 0 8px;
 }
 
 nav ul li a { 
@@ -41,11 +47,13 @@ nav ul li a {
     padding: 8px 15px;
     background: #fff0f5;
     border-radius: 20px;
+    transition: all 0.3s ease;
 }
 
 nav ul li a:hover {
     text-decoration: underline;
     color: white;
+    background-color: #ff66b2;
 }
 
 section {
@@ -55,39 +63,9 @@ section {
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 800px;
+    text-align: left;
 }
 
-footer {
-    background-color: #e08db7;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    font-weight: bold;
-    border-top: 5px #ff4da6;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
-
-/* Media Queries for Mobile Devices */
-@media only screen and (max-width: 600px) {
-    header, footer {
-        padding: 10px;
-    }
-
-    nav ul li {
-        display: block;
-        text-align: center;
-        margin: 5px 0;
-    }
-
-    section {
-        padding: 10px;
-        margin: 10px;
-    }
-}
 .project-gallery {
     display: flex;
     flex-wrap: wrap;
@@ -113,12 +91,33 @@ footer {
     display: none;
 }
 
-#typing-effect {
-    font-size: 30px;
-    font-weight: bold;
-    color: #ff1493;
-    text-align: center;
+
+/* Media Queries for Mobile Devices */
+@media only screen and (max-width: 600px) {
+    header, footer {
+        padding: 10px;
+    }
+
+    nav ul li {
+        display: block;
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    section {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    #typing-effect {
+        font-size: 22px;
+    }
 }
+
 
 form {
     background: #fff0f5;
@@ -131,32 +130,53 @@ form {
 
 input[type="text"], input[type="email"], input[type="message"] {
     width: 100%;
-    padding: 10px;
-    margin: 8px 0;
+    padding: 14px;
+    margin: 10px 0;
     border: 2px solid #ff66b2;
     border-radius: 10px;
     font-size: 16px;
     background: #fff;
+    transition: border 0.3 ease;
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3 ease;
+}
+button:hover {
+    background-color: #218838;
 }
 
 .error {
-    color: red; 
-    font-size: 0.9em; 
+    color: #d32f2f; 
+    font-size: 0.9em;
+    margin-top: -5px; 
   }
   
 .success {
     color: green;
     font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
   }
 
-button {
-    padding: 10px;
-    background-color: #28a745;
+footer {
+    background-color: #e08db7;
     color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-button:hover {
-    background-color: #218838;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-weight: bold;
+    border-top: 5px #ff4da6;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
