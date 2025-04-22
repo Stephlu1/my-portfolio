@@ -180,3 +180,80 @@ footer {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
+
+:root {
+    --bg-color: #ffe6f2;
+    --text-color: #555;
+    --header-bg: linear-gradient(135deg, #ff99cc, #ff66b2);
+    --card-bg: #fff;
+    --accent-color: #ff66b2;
+    --link-color: rgb(146, 13, 95);
+    --form-bg: #fff0f5;
+    --button-bg: #28a745;
+    --button-hover: #218838;
+    --footer-bg: #e08db7;
+    --error-color: #d32f2f;
+    --success-color: #388e3c;
+}
+
+body.dark-mode {
+    --bg-color: #1f1f1f;
+    --text-color: #e0e0e0;
+    --header-bg: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+    --card-bg: #2d2d2d;
+    --accent-color: #bb86fc;
+    --link-color: #f48fb1;
+    --form-bg: #333;
+    --button-bg: #03dac6;
+    --button-hover: #018786;
+    --footer-bg: #121212;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color)
+}
+
+header {
+    background: var(--header-bg);
+}
+
+section, project, form {
+    background-color: var(--card-bg);
+}
+
+nav ul li a {
+    background: var(--form-bg);
+    color: var(--link-color);
+}
+
+nav ul li a:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+input, textarea {
+    background: var(--card-bg);
+    border: 2px solid var(--accent-color);
+    color: var(--text-color);
+}
+
+button {
+    background-color: var(--button-bg);
+}
+
+button:hover {
+    background-color: var(--button-hover);
+}
+
+footer {
+    background-color: var(--footer-bg);
+}
+
+.error {
+    color: var(--error-color);
+}
+
+.success {
+    color: var(--success-color);
+}
