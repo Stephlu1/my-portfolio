@@ -64,3 +64,85 @@ document.addEventListener("DOMContentLoaded", function () {
         loop: true
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("toggle-theme");
+    toggleBtn?.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+    });
+
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+
+    new Typed("#typing-effect", {
+        strings: ["Hello my name is Luanna. Welcome to my Portfolio <3"],
+        typeSpeed: 40,
+        backSpeed: 20,
+        loop: true
+    });
+});
+
+const canvas = document.getElementById('petal-canvas');
+const ctx = canvas.getContext('2d');
+let petals = [];
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+function createPetal() {
+    return {
+        x: Math.random() * canvas.width,
+        y: -20,
+        size: 15 + Math.random() * 10,
+        speedY: 1 + Math.random() * 2,
+        speedX: Math.random() * 1 - 0.5,
+        angle: Math.random() * Math.PI,
+        spin: 0.01 + Math.random() * 0.02,
+        color: `rgba(255, ${150 + Math.random() * 80}, ${200 + Math.random() * 55}, 0.8)`
+    };
+}
+
+function drawPetal(p) {
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.angle);
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.quadraticCurveTo(-p.size / 2, p.size / 2, 0, p.size);
+    ctx.quadraticCurveTo(p.size / 2, p.size / 2, 0, 0);
+    ctx.fillStyle = p.color;
+    ctx.fill();
+    ctx.restore();
+}
+
+function update() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (petals.length < 80) {
+        petals.push(createPetal());
+    }
+
+    for (let i = 0; i < petals.length; i++) {
+        const p = petals[i];
+        p.y += p.speedY;
+        p.x += p.speedX;
+        p.angle += p.spin;
+
+        drawPetal(p);
+
+        if (p.y > canvas.height + 50) {
+            petals[i] = createPetal();
+        }
+    }
+
+
+    requestAnimationFrame(update);
+}
+
+update();
