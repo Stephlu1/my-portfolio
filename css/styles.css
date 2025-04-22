@@ -1,43 +1,48 @@
-/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Georgia, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
     background-color: #ffe6f2;
     color: #555;
-    text-align: center;
-    padding-bottom: 80px;
+    padding-bottom: 100px;
+    transition: all 0.3 ease-in-out;
 }
 
 header {
     background: linear-gradient(135deg, #ff99cc, #ff66b2);
     color: white;
-    padding: 20px;
+    padding: 40px 20px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
 }
 
 h1 {
-    font-size: 40px;
+    font-size: 3rem;
     margin-bottom: 10px;
 }
 
 #typing-effect {
-    font-size: 30px;
+    font-size: 1.6rem;
     font-weight: bold;
-    color: #ff1493;
+    color: #ffe6f2;
     margin-top: 10px;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin-top: 20px;
 }
 
 nav ul li {
     display: inline-block;
-    margin-right: 0 8px;
+    margin-right: 0 10px;
 }
 
 nav ul li a { 
@@ -46,7 +51,7 @@ nav ul li a {
     font-weight: bold;
     padding: 8px 15px;
     background: #fff0f5;
-    border-radius: 20px;
+    border-radius: 25px;
     transition: all 0.3s ease;
 }
 
@@ -57,13 +62,14 @@ nav ul li a:hover {
 }
 
 section {
-    padding: 30px;
-    margin: 30px auto;
+    padding: 40px 30px;
+    margin: 35px auto;
     background: white;
     border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     max-width: 800px;
     text-align: left;
+    transition: background-color 0.3 ease;
 }
 
 .project-gallery {
@@ -80,6 +86,16 @@ section {
     max-width: 300px;
     background-color: #fff;
     border-radius: 15px;
+    transition: transform 0.3ease, box-shadow 0.3 ease;
+    cursor: pointer;
+    transform: translateY(0);
+    will-change: transform;
+    text-align: center;
+}
+
+.project:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px) scale(1.05);
 }
 
 .project-details {
@@ -91,81 +107,90 @@ section {
     display: none;
 }
 
-
-/* Media Queries for Mobile Devices */
-@media only screen and (max-width: 600px) {
-    header, footer {
-        padding: 10px;
-    }
-
-    nav ul li {
-        display: block;
-        text-align: center;
-        margin: 5px 0;
-    }
-
-    section {
-        padding: 15px;
-        margin: 15px;
-    }
-
-    form {
-        padding: 15px;
-    }
-
-    #typing-effect {
-        font-size: 22px;
-    }
+#contact {
+    padding: 40px;
+    background-color: #f9f9f9;
 }
-
 
 form {
-    background: #fff0f5;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.contact-section {
+    padding: 2rem;
     max-width: 600px;
-    margin: auto;
+    margin: 0 auto;
+    text-align: center;
 }
 
-input[type="text"], input[type="email"], input[type="message"] {
-    width: 100%;
-    padding: 14px;
-    margin: 10px 0;
-    border: 2px solid #ff66b2;
-    border-radius: 10px;
-    font-size: 16px;
-    background: #fff;
-    transition: border 0.3 ease;
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-button {
-    padding: 12px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+label {
+    margin-bottom: 0.5rem;
     font-weight: bold;
-    transition: background-color 0.3 ease;
 }
-button:hover {
-    background-color: #218838;
+
+input,
+textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #7e57c2;
+    outline: none;
+}
+
+.submit-btn,
+.toggle-theme-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background-color: #7e57c2;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover,
+.toggle-theme-btn:hover {
+    background-color: #5e35b1;
 }
 
 .error {
-    color: #d32f2f; 
-    font-size: 0.9em;
-    margin-top: -5px; 
-  }
-  
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
 .success {
     color: green;
-    font-size: 1.2em;
+    margin-top: 1rem;
+}
+
+.confirmation-message {
+    margin-top: 1rem;
+    color: #4caf50;
     font-weight: bold;
-    margin-top: 10px;
-  }
+}
 
 footer {
     background-color: #e08db7;
@@ -197,7 +222,7 @@ footer {
 }
 
 body.dark-mode {
-    --bg-color: #1f1f1f;
+    --bg-color: #121212;
     --text-color: #e0e0e0;
     --header-bg: linear-gradient(135deg, #2c2c2c, #1a1a1a);
     --card-bg: #2d2d2d;
@@ -208,6 +233,7 @@ body.dark-mode {
     --button-hover: #018786;
     --footer-bg: #121212;
 }
+
 
 body {
     background-color: var(--bg-color);
@@ -256,4 +282,64 @@ footer {
 
 .success {
     color: var(--success-color);
+}
+
+/* Media Queries for Mobile Devices */
+@media only screen and (max-width: 600px) {
+    header, footer {
+        padding: 10px;
+    }
+
+    nav ul li {
+        display: block;
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    section {
+        padding: 15px;
+        margin: 15px;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    #typing-effect {
+        font-size: 22px;
+    }
+
+    .project-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+#petal-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+i {
+    color: #ff80ab;
+    margin-right: 5px;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #90caf9;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.project-link:hover {
+    background-color: #42a5f5;
 }
